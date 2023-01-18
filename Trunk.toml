@@ -1,2 +1,3 @@
 [build]
-public_url = "./"
+public_url = "/"
+filehash = false

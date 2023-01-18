@@ -8,20 +8,24 @@ struct Model {
     value: i64,
 }
 
+mod services;
+
 impl Component for Model {
     type Message = Msg;
     type Properties = ();
-
     fn create(_ctx: &Context<Self>) -> Self {
-        Self {
-            value: 0,
-        }
+        // fetch service value
+        Self { value: 0 }
+    }
+
+    fn rendered(&mut self, _ctx: &Context<Self>, first_render: bool) {
+        if first_render {}
     }
 
     fn update(&mut self, _ctx: &Context<Self>, msg: Self::Message) -> bool {
         match msg {
             Msg::AddOne => {
-                self.value += 1;
+                self.value = self.value + 1;
                 // the value has changed so we need to
                 // re-render for it to appear on the page
                 true

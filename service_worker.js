@@ -24,3 +24,15 @@ self.addEventListener('fetch', function(e) {
     })
   );
 });
+
+let value = 0
+self.addEventListener('/counter-value', (e) => {
+  console.log(value)
+  e.respondWith(value)
+})
+
+self.addEventListener('/add-one', (e) => {
+  value = value + 1
+  console.log(value)
+  e.respondWith(value + 1)
+})
